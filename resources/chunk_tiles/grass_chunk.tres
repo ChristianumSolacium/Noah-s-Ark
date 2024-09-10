@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ChunkTilesContainer" load_steps=13 format=3 uid="uid://bndtpo6lwuto5"]
+
+[ext_resource type="Script" path="res://resources/scripts/ChunkTilesContainer.gd" id="1_ikrsy"]
+[ext_resource type="Texture2D" uid="uid://bs6pogvd4ekhj" path="res://sprites/tiles/grass_A.png" id="1_xnqou"]
+[ext_resource type="Texture2D" uid="uid://de4oovxmkkscw" path="res://sprites/tiles/grass_B.png" id="2_xn04p"]
+[ext_resource type="Texture2D" uid="uid://lcsamlaj0gwd" path="res://sprites/tiles/grass_C.png" id="3_dp0ks"]
+[ext_resource type="Texture2D" uid="uid://boif03w6fv8eh" path="res://sprites/tiles/grass_D.png" id="4_te3s2"]
+[ext_resource type="Texture2D" uid="uid://cwb8y5g5rgmq8" path="res://sprites/tiles/grass_E.png" id="5_jfg6c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2442g"]
+texture = ExtResource("1_xnqou")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_020xi"]
+texture = ExtResource("2_xn04p")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8o8u"]
+texture = ExtResource("3_dp0ks")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2lvb"]
+texture = ExtResource("4_te3s2")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psvkx"]
+texture = ExtResource("5_jfg6c")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dknbk"]
+tile_size = Vector2i(32, 24)
+sources/0 = SubResource("TileSetAtlasSource_2442g")
+sources/1 = SubResource("TileSetAtlasSource_020xi")
+sources/2 = SubResource("TileSetAtlasSource_m8o8u")
+sources/3 = SubResource("TileSetAtlasSource_k2lvb")
+sources/4 = SubResource("TileSetAtlasSource_psvkx")
+
+[resource]
+script = ExtResource("1_ikrsy")
+tile_set = SubResource("TileSet_dknbk")
+tiles = Array[int]([0, 1, 2, 3])
+tile_rarity = Array[float]([0.25, 0.25, 0.25, 0.25])
+_sum_of_tile_rarities = 1.0
+sum_of_tile_rarities = 1.0
+set_rarities_to_one = false

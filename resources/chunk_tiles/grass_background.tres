@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="ChunkTilesContainer" load_steps=9 format=3 uid="uid://dhytbhxppx55h"]
+
+[ext_resource type="Script" path="res://resources/scripts/ChunkTilesContainer.gd" id="1_bn6b3"]
+[ext_resource type="Texture2D" uid="uid://33mxl32uhsni" path="res://sprites/background/mountainsA.png" id="2_0508f"]
+[ext_resource type="Texture2D" uid="uid://dc758b18rjnko" path="res://sprites/background/mountainsB.png" id="3_bmlbg"]
+[ext_resource type="Texture2D" uid="uid://p4aawr7dh85m" path="res://sprites/background/mountainsC.png" id="4_jf5nl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4bvm2"]
+texture = ExtResource("2_0508f")
+texture_region_size = Vector2i(256, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4psa4"]
+texture = ExtResource("3_bmlbg")
+texture_region_size = Vector2i(256, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4uw4c"]
+texture = ExtResource("4_jf5nl")
+texture_region_size = Vector2i(256, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hxi6w"]
+tile_size = Vector2i(256, 128)
+sources/0 = SubResource("TileSetAtlasSource_4bvm2")
+sources/1 = SubResource("TileSetAtlasSource_4psa4")
+sources/2 = SubResource("TileSetAtlasSource_4uw4c")
+
+[resource]
+script = ExtResource("1_bn6b3")
+tile_set = SubResource("TileSet_hxi6w")
+tiles = Array[int]([0, 1, 2])
+tile_rarity = Array[float]([0.5, 0.333333, 0.166667])
+_sum_of_tile_rarities = 1.0
+sum_of_tile_rarities = 1.0
+set_rarities_to_one = false

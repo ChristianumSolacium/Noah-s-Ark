@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://y2nixp87i467"]
+
+[ext_resource type="Script" path="res://main_scene/UI.gd" id="1_74qhp"]
+[ext_resource type="Texture2D" uid="uid://u8m0pfx58y5j" path="res://sprites/ui_elements/battery_under.png" id="2_gho4x"]
+[ext_resource type="Texture2D" uid="uid://bhdppl4lur0ym" path="res://sprites/ui_elements/battery_over.png" id="3_2jqqe"]
+[ext_resource type="Texture2D" uid="uid://h2hql02uotnv" path="res://sprites/ui_elements/battery_progress.png" id="4_atus8"]
+
+[sub_resource type="Gradient" id="Gradient_b32uv"]
+colors = PackedColorArray(0.113683, 0.524585, 0.90761, 1, 0.188818, 0.163595, 0.594752, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4kcj1"]
+gradient = SubResource("Gradient_b32uv")
+width = 768
+height = 32
+
+[sub_resource type="Gradient" id="Gradient_pu03p"]
+colors = PackedColorArray(0, 0, 0, 1, 0.697636, 0.0104631, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_funim"]
+gradient = SubResource("Gradient_pu03p")
+width = 768
+height = 32
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("progression_bar")]
+script = ExtResource("1_74qhp")
+progression_bar = NodePath("Progression")
+
+[node name="Progression" type="TextureProgressBar" parent="."]
+offset_left = 153.0
+offset_top = 572.0
+offset_right = 921.0
+offset_bottom = 612.0
+texture_under = SubResource("GradientTexture2D_4kcj1")
+texture_progress = SubResource("GradientTexture2D_funim")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 982.0
+offset_top = 1.0
+offset_right = 1022.0
+offset_bottom = 41.0
+scale = Vector2(4.32258, 16.2258)
+color = Color(0.31, 0.31, 0.31, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 1031.0
+offset_top = 131.0
+offset_right = 1095.0
+offset_bottom = 331.0
+scale = Vector2(1.64085, 1.88688)
+value = 49.0
+fill_mode = 3
+texture_under = ExtResource("2_gho4x")
+texture_over = ExtResource("3_2jqqe")
+texture_progress = ExtResource("4_atus8")

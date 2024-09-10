@@ -1,0 +1,52 @@
+[gd_scene load_steps=14 format=3 uid="uid://b26a53lkkggj6"]
+
+[ext_resource type="Texture2D" uid="uid://bs6pogvd4ekhj" path="res://sprites/tiles/grass_A.png" id="1_h8qnp"]
+[ext_resource type="Texture2D" uid="uid://de4oovxmkkscw" path="res://sprites/tiles/grass_B.png" id="2_u8042"]
+[ext_resource type="Texture2D" uid="uid://lcsamlaj0gwd" path="res://sprites/tiles/grass_C.png" id="3_y7vrc"]
+[ext_resource type="Texture2D" uid="uid://boif03w6fv8eh" path="res://sprites/tiles/grass_D.png" id="4_q15vf"]
+[ext_resource type="Texture2D" uid="uid://cwb8y5g5rgmq8" path="res://sprites/tiles/grass_E.png" id="5_dfajp"]
+[ext_resource type="Script" path="res://game_objects/chunk/chunk.gd" id="6_2axkh"]
+[ext_resource type="Script" path="res://game_objects/chunk/cycle_notifier.gd" id="7_2y8bk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sonaw"]
+texture = ExtResource("1_h8qnp")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qp0ck"]
+texture = ExtResource("2_u8042")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_00nxu"]
+texture = ExtResource("3_y7vrc")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avr0m"]
+texture = ExtResource("4_q15vf")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2jg6h"]
+texture = ExtResource("5_dfajp")
+texture_region_size = Vector2i(32, 24)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ffofy"]
+tile_size = Vector2i(32, 24)
+sources/0 = SubResource("TileSetAtlasSource_sonaw")
+sources/1 = SubResource("TileSetAtlasSource_qp0ck")
+sources/2 = SubResource("TileSetAtlasSource_00nxu")
+sources/3 = SubResource("TileSetAtlasSource_avr0m")
+sources/4 = SubResource("TileSetAtlasSource_2jg6h")
+
+[node name="Chunk" type="TileMapLayer"]
+position = Vector2(-576, -71)
+tile_set = SubResource("TileSet_ffofy")
+script = ExtResource("6_2axkh")
+
+[node name="CycleNotifier" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("chunk")]
+position = Vector2(1312, 0)
+script = ExtResource("7_2y8bk")
+chunk = NodePath("..")
