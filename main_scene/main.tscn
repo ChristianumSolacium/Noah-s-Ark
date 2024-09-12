@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=4 uid="uid://20gr78igcctp"]
 
 [ext_resource type="Script" path="res://main_scene/sky.gd" id="1_aoe7e"]
-[ext_resource type="PackedScene" uid="uid://b26a53lkkggj6" path="res://game_objects/chunk/chunk.tscn" id="1_bk8ub"]
+[ext_resource type="PackedScene" uid="uid://b26a53lkkggj6" path="res://test_nmagic_net_shader/chunk/chunk.tscn" id="1_bk8ub"]
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_wvdtl"]
 [ext_resource type="Texture2D" uid="uid://bwq7bgas1i10r" path="res://sprites/sky_objects/big_eye.png" id="2_opcx7"]
 [ext_resource type="Texture2D" uid="uid://coqnnr5xgbag6" path="res://sprites/robot.png" id="3_uym26"]

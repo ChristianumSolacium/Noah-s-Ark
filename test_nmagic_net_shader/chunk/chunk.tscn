@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://lcsamlaj0gwd" path="res://sprites/tiles/grass_C.png" id="3_y7vrc"]
 [ext_resource type="Texture2D" uid="uid://boif03w6fv8eh" path="res://sprites/tiles/grass_D.png" id="4_q15vf"]
 [ext_resource type="Texture2D" uid="uid://cwb8y5g5rgmq8" path="res://sprites/tiles/grass_E.png" id="5_dfajp"]
-[ext_resource type="Script" path="res://game_objects/chunk/chunk.gd" id="6_2axkh"]
-[ext_resource type="Script" path="res://game_objects/chunk/cycle_notifier.gd" id="7_2y8bk"]
+[ext_resource type="Script" path="res://test_nmagic_net_shader/chunk/chunk.gd" id="6_2axkh"]
+[ext_resource type="Script" path="res://test_nmagic_net_shader/chunk/cycle_notifier.gd" id="7_2y8bk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sonaw"]
 texture = ExtResource("1_h8qnp")

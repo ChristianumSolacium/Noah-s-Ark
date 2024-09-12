@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2i8e0dt3st7q"]
+
+[ext_resource type="Script" path="res://test_nmagic_net_shader/area_2d.gd" id="1_37401"]
+[ext_resource type="Shader" path="res://game_objects/magic_net_capture_shader/magic_net_capture.gdshader" id="2_h4op3"]
+[ext_resource type="Script" path="res://game_objects/basic_player.gd" id="3_3kaw6"]
+[ext_resource type="Texture2D" uid="uid://cyq5uben1jx3m" path="res://icon.svg" id="4_re878"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nc1mh"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2gmuq"]
+b = Vector2(137, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rh2rq"]
+shader = ExtResource("2_h4op3")
+shader_parameter/pos0 = Vector2(200, 300)
+shader_parameter/pos1 = Vector2(0, 0)
+shader_parameter/active = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wf0ax"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_amf41"]
+shader = ExtResource("2_h4op3")
+shader_parameter/pos0 = Vector2(200, 300)
+shader_parameter/pos1 = Vector2(0, 0)
+shader_parameter/active = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uc53t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_re878")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_nc1mh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(137, 0)
+shape = SubResource("CircleShape2D_nc1mh")
+
+[node name="Area2D" type="Area2D" parent="RigidBody2D" node_paths=PackedStringArray("pos0", "pos1", "camera_corner")]
+script = ExtResource("1_37401")
+pos0 = NodePath("../CollisionShape2D")
+pos1 = NodePath("../CollisionShape2D2")
+camera_corner = NodePath("../../Camera2D/Node2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
+shape = SubResource("SegmentShape2D_2gmuq")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+material = SubResource("ShaderMaterial_rh2rq")
+position = Vector2(-1, 1)
+
+[node name="Player" type="RigidBody2D" parent="." node_paths=PackedStringArray("sprite")]
+material = SubResource("ShaderMaterial_wf0ax")
+position = Vector2(-63, -50)
+script = ExtResource("3_3kaw6")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_nc1mh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+material = SubResource("ShaderMaterial_amf41")
+scale = Vector2(0.236698, 0.196522)
+sprite_frames = SubResource("SpriteFrames_uc53t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-63, -50)
+
+[node name="Node2D" type="Node2D" parent="Camera2D"]
+position = Vector2(-576, -324)
+
+[connection signal="body_exited" from="RigidBody2D/Area2D" to="RigidBody2D/Area2D" method="_on_body_exited"]
