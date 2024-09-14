@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://20gr78igcctp"]
+[gd_scene load_steps=45 format=4 uid="uid://20gr78igcctp"]
 
 [ext_resource type="Script" path="res://main_scene/sky.gd" id="1_aoe7e"]
 [ext_resource type="PackedScene" uid="uid://b26a53lkkggj6" path="res://game_objects/chunk/chunk.tscn" id="1_bk8ub"]
@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://bndtpo6lwuto5" path="res://resources/chunk_tiles/grass_chunk.tres" id="16_gjqfe"]
 [ext_resource type="Script" path="res://game_objects/basic_player.gd" id="18_yrnxj"]
 [ext_resource type="Resource" uid="uid://di442irie7u5o" path="res://resources/chunk_tiles/grass_foreground.tres" id="22_pml5d"]
+[ext_resource type="PackedScene" uid="uid://p6ypoxlhhfkg" path="res://player/player.tscn" id="25_w5pd0"]
+[ext_resource type="PackedScene" uid="uid://eftkqnerprus" path="res://animals/idle_animal.tscn" id="26_htyhd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48i3k"]
 
@@ -254,3 +256,14 @@ chunk_tiles = ExtResource("22_pml5d")
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_b2q0s")]
 player = NodePath("../Playground/BasicPlayer")
 end_of_world = 5000.0
+
+[node name="Player" parent="." instance=ExtResource("25_w5pd0")]
+position = Vector2(72, -29)
+
+[node name="Animal1" parent="." instance=ExtResource("26_htyhd")]
+position = Vector2(252, -9)
+animal_state = 1
+
+[node name="Animal2" parent="." instance=ExtResource("26_htyhd")]
+position = Vector2(523, -9)
+animal_state = 0

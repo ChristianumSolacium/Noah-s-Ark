@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c27hsvbr24sic"]
+
+[node name="fleeing_animal" type="Node2D"]

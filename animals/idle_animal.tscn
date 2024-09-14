@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://eftkqnerprus"]
+
+[ext_resource type="Script" path="res://animals/idle_animal.gd" id="1_5vcq4"]
+[ext_resource type="Texture2D" uid="uid://dx0ilp1bcolen" path="res://sprites/animali/Clucking Chicken/CluckingChickenIdleSide.png" id="1_fbfu6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8va7p"]
+radius = 85.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csjk1"]
+atlas = ExtResource("1_fbfu6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cigay"]
+atlas = ExtResource("1_fbfu6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8gb3"]
+atlas = ExtResource("1_fbfu6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llh62"]
+atlas = ExtResource("1_fbfu6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwltl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csjk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cigay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8gb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llh62")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hamm4"]
+radius = 6.0
+
+[node name="IdleAnimal" type="CharacterBody2D"]
+script = ExtResource("1_5vcq4")
+timer = 5.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8va7p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vwltl")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_hamm4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
